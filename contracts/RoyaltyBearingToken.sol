@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: Apache 2.0
-pragma solidity 0.8.10;
+pragma solidity 0.8.20;
 
 import '@openzeppelin/contracts/token/ERC20/IERC20.sol';
 import '@openzeppelin/contracts/token/ERC721/ERC721.sol';
@@ -283,11 +283,11 @@ contract RoyaltyBearingToken is ERC721Burnable, ERC721Pausable, ERC721URIStorage
         address to,
         uint256 tokenId,
         uint256 batchSize
-    ) internal virtual override (ERC721,ERC721Pausable){
+    ) internal virtual override (ERC721, ERC721Pausable){
         super._beforeTokenTransfer(from, to, tokenId, batchSize);
     }
 
-    function supportsInterface(bytes4 interfaceId) public view virtual override(AccessControlEnumerable, ERC721) returns (bool) {
+    function supportsInterface(bytes4 interfaceId) public view virtual override(AccessControlEnumerable, ERC721, ERC721URIStorage) returns (bool) {
         return super.supportsInterface(interfaceId);
     }
 
@@ -321,7 +321,7 @@ contract RoyaltyBearingToken is ERC721Burnable, ERC721Pausable, ERC721URIStorage
         address,
         address,
         uint256
-    ) public pure override {
+    ) public pure override (ERC721, IERC721) {
         revert('Function not allowed');
     }
 
@@ -329,7 +329,7 @@ contract RoyaltyBearingToken is ERC721Burnable, ERC721Pausable, ERC721URIStorage
         address,
         address,
         uint256
-    ) public virtual override {
+    ) public virtual override (ERC721, IERC721) {
         revert('Function not allowed');
     }
 
@@ -449,7 +449,7 @@ contract RoyaltyBearingToken is ERC721Burnable, ERC721Pausable, ERC721URIStorage
         address to,
         uint256 tokenId,
         bytes memory data
-    ) public override {
+    ) public override (ERC721, IERC721) {
         (
             address _seller,
             address _buyer,
