@@ -377,7 +377,7 @@ contract RoyaltyBearingToken is ERC721Burnable, ERC721Pausable, ERC721URIStorage
         uint256 payment,
         string calldata tokenType,
         int256 trxntype
-    ) public virtual nonReentrant returns (bool) {
+    ) public virtual returns (bool) {
         require(payment > 0, 'Payments cannot be 0!');
         require(trxntype == 0 || trxntype == 1, 'Trxn type not supported');
         require(receiver != address(0), 'Receiver must not be zero');
@@ -424,7 +424,7 @@ contract RoyaltyBearingToken is ERC721Burnable, ERC721Pausable, ERC721URIStorage
         return paymentModule.checkRegisterPayment(tokenId, buyer, tokenType);
     }
 
-    function reversePayment(uint256 tokenId, string memory tokenType) public virtual nonReentrant returns (bool) {
+    function reversePayment(uint256 tokenId, string memory tokenType) public virtual returns (bool) {
         uint256 payment = checkPayment(tokenId, tokenType, _msgSender());
         require(payment > 0, 'No payment registered');
 
