@@ -23,7 +23,7 @@ contract RoyaltyBearingToken is ERC721Burnable, ERC721Pausable, ERC721URIStorage
     constructor(
         string memory name,
         string memory symbol,
-        string memory baseTokenURI,
+        string memory baseTokenURI, 
         string[] memory allowedTokenTypes,
         address[] memory allowedTokenAddresses,
         address creatorAddress,
@@ -321,7 +321,7 @@ contract RoyaltyBearingToken is ERC721Burnable, ERC721Pausable, ERC721URIStorage
         address,
         address,
         uint256
-    ) public pure override (ERC721, IERC721) {
+    ) public pure virtual override (ERC721, IERC721) {
         revert('Function not allowed');
     }
 
