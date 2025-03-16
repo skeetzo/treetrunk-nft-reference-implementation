@@ -10,7 +10,6 @@ import '@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol';
 import '@openzeppelin/contracts/access/AccessControlEnumerable.sol';
 import '@openzeppelin/contracts/utils/Address.sol';
 import '@openzeppelin/contracts/utils/Counters.sol';
-// import '@openzeppelin/contracts/security/ReentrancyGuard.sol';
 import './RoyaltyBearingTokenStorage.sol';
 import './RoyaltyModule.sol';
 import './PaymentModule.sol';
